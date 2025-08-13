@@ -141,7 +141,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const modalTimerId = setTimeout(openModal, 5000);
+    // const modalTimerId = setTimeout(openModal, 5000);
 
     function showModalByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
@@ -151,5 +151,68 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', showModalByScroll);
+
+    // Using classes for menu item
+
+    class MenuCard {
+      constructor(src, alt, title, descr,  price, parentSelector) {
+        this.src = src;
+        this.alt = alt;
+        this.title = title;
+        this.descr = descr;
+        this.price = price;
+        this.parent = document.querySelector(parentSelector);
+        this.transfer = 0.2;
+        this.changeToPln(); 
+      }
+
+      changeToPln() {
+        this.price = this.price * this.transfer;
+      }
+
+      render() {
+        const element = document.createElement('div');
+        element.innerHTML = `
+        <div class="menu__item">
+                    <img src=${this.src} alt=${this.alt}>
+                    <h3 class="menu__item-subtitle">${this.title}</h3>
+                    <div class="menu__item-descr">${this.descr}</div>
+                    <div class="menu__item-divider"></div>
+                    <div class="menu__item-price">
+                        <div class="menu__item-cost">Price:</div>
+                        <div class="menu__item-total"><span>${this.price}</span> pound/day</div>
+                    </div>
+                </div>
+        `;
+        this.parent.append(element);
+      }
+    }
+
+    new MenuCard(
+      "img/tabs/vegy.jpg",
+      "vegy",
+      '"Fitness" Menu',
+      'The "Fitness" menu is a new approach to meal preparation: more fresh vegetables and fruits. A product for active and health-conscious people. It\'s a completely new concept with optimal pricing and high quality!',
+      25,
+      '.menu .container'
+    ).render();
+
+    new MenuCard(
+      "img/tabs/elite.jpg",
+      "elite",
+      '"Premium" Menu',
+      'In the "Premium" menu, we offer not only attractive packaging design but also high-quality meal execution. Red fish, seafood, fruits — a restaurant-style menu without going to a restaurant!',
+      50,
+      '.menu .container'
+    ).render();
+
+    new MenuCard(
+      "img/tabs/post.jpg",
+      "post",
+      '"Lenten" Menu',
+      'The "Lenten" menu is all about carefully selected ingredients: completely free of animal products, featuring almond, oat, coconut, or buckwheat milk, and the right amount of protein from tofu and imported vegetarian steaks.',
+      35,
+      '.menu .container'
+    ).render();
     
 });
