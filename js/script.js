@@ -51,9 +51,9 @@ window.addEventListener('DOMContentLoaded', () => {
             seconds = 0;
         } else {
             days = Math.floor(t / (1000 * 60 * 60 * 24)),
-            hours = Math.floor((t / (1000 * 60 * 60) % 24)),
-            minutes = Math.floor((t / 1000 / 60) % 60),
-            seconds = Math.floor((t / 1000) % 60);
+                hours = Math.floor((t / (1000 * 60 * 60) % 24)),
+                minutes = Math.floor((t / 1000 / 60) % 60),
+                seconds = Math.floor((t / 1000) % 60);
         }
 
 
@@ -105,10 +105,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // Modal
 
     const modalTrigger = document.querySelectorAll('[data-modal]'),
-    modal = document.querySelector('.modal'),
-    modalCloseBtn = document.querySelector('[data-close');
-    
-    function openModal(){
+        modal = document.querySelector('.modal'),
+        modalCloseBtn = document.querySelector('[data-close');
+
+    function openModal() {
         modal.classList.add('show');
         modal.classList.remove('hide');
         document.body.style.overflow = 'hidden';
@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', openModal);
     });
 
-    
+
 
     function closeModal() {
         modal.classList.add('hide');
@@ -127,16 +127,16 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    
+
     modalCloseBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-           closeModal();
+            closeModal();
         }
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('show')){
+        if (e.code === "Escape" && modal.classList.contains('show')) {
             closeModal();
         }
     });
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // const modalTimerId = setTimeout(openModal, 5000);
 
     function showModalByScroll() {
-        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
             openModal();
             window.removeEventListener('scroll', showModalByScroll);
         }
@@ -155,25 +155,33 @@ window.addEventListener('DOMContentLoaded', () => {
     // Using classes for menu item
 
     class MenuCard {
-      constructor(src, alt, title, descr,  price, parentSelector) {
-        this.src = src;
-        this.alt = alt;
-        this.title = title;
-        this.descr = descr;
-        this.price = price;
-        this.parent = document.querySelector(parentSelector);
-        this.transfer = 0.2;
-        this.changeToPln(); 
-      }
+        constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+            this.src = src;
+            this.alt = alt;
+            this.title = title;
+            this.descr = descr;
+            this.price = price;
+            this.classes = classes;
+            this.parent = document.querySelector(parentSelector);
+            this.transfer = 0.2;
+            this.changeToPln();
+        }
 
-      changeToPln() {
-        this.price = this.price * this.transfer;
-      }
+        changeToPln() {
+            this.price = this.price * this.transfer;
+        }
 
-      render() {
-        const element = document.createElement('div');
-        element.innerHTML = `
-        <div class="menu__item">
+        render() {
+            const element = document.createElement('div');
+            if (this.classes.lngth === 0) {
+                this.element = 'menu__item';
+                element.classList.add(this.element);
+            } else {
+                this.classes.forEach(className => element.classList.add(className));
+            }
+
+            element.innerHTML = `
+        
                     <img src=${this.src} alt=${this.alt}>
                     <h3 class="menu__item-subtitle">${this.title}</h3>
                     <div class="menu__item-descr">${this.descr}</div>
@@ -182,37 +190,40 @@ window.addEventListener('DOMContentLoaded', () => {
                         <div class="menu__item-cost">Price:</div>
                         <div class="menu__item-total"><span>${this.price}</span> pound/day</div>
                     </div>
-                </div>
+                
         `;
-        this.parent.append(element);
-      }
+            this.parent.append(element);
+        }
     }
 
     new MenuCard(
-      "img/tabs/vegy.jpg",
-      "vegy",
-      '"Fitness" Menu',
-      'The "Fitness" menu is a new approach to meal preparation: more fresh vegetables and fruits. A product for active and health-conscious people. It\'s a completely new concept with optimal pricing and high quality!',
-      25,
-      '.menu .container'
+        "img/tabs/vegy.jpg",
+        "vegy",
+        '"Fitness" Menu',
+        'The "Fitness" menu is a new approach to meal preparation: more fresh vegetables and fruits. A product for active and health-conscious people. It\'s a completely new concept with optimal pricing and high quality!',
+        25,
+        '.menu .container',
+        'menu__item'
     ).render();
 
     new MenuCard(
-      "img/tabs/elite.jpg",
-      "elite",
-      '"Premium" Menu',
-      'In the "Premium" menu, we offer not only attractive packaging design but also high-quality meal execution. Red fish, seafood, fruits — a restaurant-style menu without going to a restaurant!',
-      50,
-      '.menu .container'
+        "img/tabs/elite.jpg",
+        "elite",
+        '"Premium" Menu',
+        'In the "Premium" menu, we offer not only attractive packaging design but also high-quality meal execution. Red fish, seafood, fruits — a restaurant-style menu without going to a restaurant!',
+        50,
+        '.menu .container',
+        'menu__item'
     ).render();
 
     new MenuCard(
-      "img/tabs/post.jpg",
-      "post",
-      '"Lenten" Menu',
-      'The "Lenten" menu is all about carefully selected ingredients: completely free of animal products, featuring almond, oat, coconut, or buckwheat milk, and the right amount of protein from tofu and imported vegetarian steaks.',
-      35,
-      '.menu .container'
+        "img/tabs/post.jpg",
+        "post",
+        '"Lenten" Menu',
+        'The "Lenten" menu is all about carefully selected ingredients: completely free of animal products, featuring almond, oat, coconut, or buckwheat milk, and the right amount of protein from tofu and imported vegetarian steaks.',
+        35,
+        '.menu .container',
+        'menu__item'
     ).render();
-    
+
 });
