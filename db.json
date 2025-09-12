@@ -1,0 +1,31 @@
+{
+  "menu": [
+    {
+      "img": "img/tabs/vegy.jpg",
+      "altimg": "vegy",
+      "title": "'Fitness' Menu",
+      "descr": "The 'Fitness' menu is a new approach to meal preparation: more fresh vegetables and fruits. A product for active and health-conscious people. It is a completely new concept with optimal pricing and high quality!",
+      "price": 25,
+      "id": "0f5c"
+    },
+    {
+      "img": "img/tabs/post.jpg",
+      "altimg": "post",
+      "title": "'Lenten' Menu",
+      "descr": "The 'Lenten' menu is all about carefully selected ingredients: completely free of animal products, featuring almond, oat, coconut, or buckwheat milk, and the right amount of protein from tofu and imported vegetarian steaks.",
+      "price": 35,
+      "id": "7e53"
+    },
+    {
+      "img": "img/tabs/elite.jpg",
+      "altimg": "elite",
+      "title": "'Premium' Menu",
+      "descr": "In the 'Premium' menu, we offer not only attractive packaging design but also high-quality meal execution. Red fish, seafood, fruits — a restaurant-style menu without going to a restaurant!",
+      "price": 50,
+      "id": "7875"
+    }
+  ],
+  "requests": [
+    
+  ]
+}
