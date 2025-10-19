@@ -39,6 +39,6 @@ This project demonstrates modular JavaScript architecture, ES6+ features, and DO
 
 ## 📸 Demo Preview
 
-*(Add screenshots or a live demo link here once deployed)*
+
 
 ---
