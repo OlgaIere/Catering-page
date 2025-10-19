@@ -39,7 +39,7 @@ This project demonstrates modular JavaScript architecture, ES6+ features, and DO
 
 ## 📸 Demo Preview
 
-[Watch the demo video](./foodDelivery.mp4)
+[Watch the demo video](https://1drv.ms/v/c/40d2ee1b5bfaba5d/EQ1FXtsWoppDiM5mU_iEPqMB7TUgpss7amm-nxS9RuMpVQ?e=cVlYdl)
 
 
 
