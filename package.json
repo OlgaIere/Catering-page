@@ -8,12 +8,23 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ],
   "devDependencies": {
-    "webpack-cli": "^6.0.1",
-    "json-server": "^0.16.1"
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "babel-loader": "^10.0.0",
+    "core-js": "^3.46.0",
+    "json-server": "^0.16.1",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "es6-promise": "^4.2.8",
+    "nodelist-foreach-polyfill": "^1.2.0",
     "webpack": "^5.101.3"
   }
- 
 }
