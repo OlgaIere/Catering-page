@@ -30,7 +30,7 @@ This project demonstrates modular JavaScript architecture, ES6+ features, and DO
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/food-delivery-project.git
+   git clone https://github.com/OlgaIere/Catering-page.git
    ```
 2. Open the folder and run a local server (for example, using VS Code’s Live Server extension).
 3. Open `index.html` in your browser.
@@ -38,6 +38,9 @@ This project demonstrates modular JavaScript architecture, ES6+ features, and DO
 ---
 
 ## 📸 Demo Preview
+
+
+
 
 
 
